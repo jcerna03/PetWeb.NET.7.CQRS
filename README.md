@@ -2,7 +2,7 @@
 - RESTful API with implementation of read and write operations to a local sql database applying CQRS concepts with MediatR and Dapper
 
 ## Clean Architecture - Hexagonal Architecture 
-## Net 7 C# 11 - CQRS Pattern with MediatR 12 and Dapper 2 
+## NET 7 C# 11 - CQRS Pattern with MediatR 12 and Dapper 2 
 
 ### Read operations with Pagination:
 

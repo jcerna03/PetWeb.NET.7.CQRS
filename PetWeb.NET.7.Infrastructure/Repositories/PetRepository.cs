@@ -40,7 +40,7 @@ public class PetRepository : IPetRepository
                 commandTimeout: _databaseOptions.CommandTimeOut,
                 commandType: CommandType.StoredProcedure);
 
-            IEnumerable<Pet> Pets = PetsDto.Select(row => new Pet { PetId = row.PetId, Name = row.Name, });
+            IEnumerable<Pet> Pets = PetsDto.Select(pet => new Pet { PetId = pet.PetId, Name = pet.Name, Type = pet.Type });
 
             DynamicParameters parametersCount = new();
 
@@ -73,8 +73,11 @@ public class PetRepository : IPetRepository
         try
         {
             using IDbConnection dbConnection = _connectionFactory.GetConnection();
+
             dbConnection.Open();
+
             DynamicParameters parameters = new();
+
             parameters.Add("PetId", dbType: DbType.Int32, direction: ParameterDirection.Output);
             parameters.Add("Name", name);
             parameters.Add("Type", type);
@@ -83,6 +86,7 @@ public class PetRepository : IPetRepository
                 param: parameters,
                 commandTimeout: _databaseOptions.CommandTimeOut,
                 commandType: CommandType.StoredProcedure);
+
             int petId = parameters.Get<int>("PetId");
 
             return petId;
@@ -102,7 +106,9 @@ public class PetRepository : IPetRepository
             using IDbConnection dbConnection = _connectionFactory.GetConnection();
 
             dbConnection.Open();
+
             DynamicParameters parameters = new();
+
             parameters.Add("PetId", petId);
             parameters.Add("Name", name);
             parameters.Add("Type", type);
@@ -126,8 +132,11 @@ public class PetRepository : IPetRepository
         try
         {
             using IDbConnection dbConnection = _connectionFactory.GetConnection();
+
             dbConnection.Open();
+
             DynamicParameters parameters = new();
+
             parameters.Add("PetId", petId);
             parameters.Add("Success", dbType: DbType.Int32, direction: ParameterDirection.Output);
 

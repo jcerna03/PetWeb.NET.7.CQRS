@@ -34,7 +34,8 @@ public class GetPetHandler : IRequestHandler<GetPetQuery, Page<GetPetResponse>>
             Results = response.Results.Select(pet => new GetPetResponse
             {
                 PetId = pet.PetId,
-                Name = pet.Name
+                Name = pet.Name,
+                Type = pet.Type
             })
         };
     }

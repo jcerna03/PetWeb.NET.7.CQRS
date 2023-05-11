@@ -87,3 +87,16 @@ Expected Result:
     "success": true
 }
 ```
+
+### You can find the SQL scripts in the solution root folder, run these scripts in SQL Management Studio to create the database, tables, and stored procedures to be used by the application.
+
+File: dbScripts.sql
+
+### You can find the connection string in the Secret Manager json file
+
+```json
+{
+  "Database:CommandTimeOut": 30,
+  "Database:ConnectionString": "Server=DESKTOP\\SQLEXPRESS;Initial Catalog=dbPetWeb;Trusted_Connection=True;Connection Timeout=30;"
+}
+```

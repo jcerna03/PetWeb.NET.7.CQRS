@@ -12,7 +12,7 @@ Expected Result:
 ```json
 {
     "currentPage": 1,
-    "totalResults": 7,
+    "totalResults": 5,
     "size": 10,
     "results": [
         {
